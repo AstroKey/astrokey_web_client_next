@@ -20,6 +20,8 @@ const mutations = {
     let devices = store.getters['device/collection']
     let device = _.find(devices, { serialNumber: options.instance.id })
 
+    console.log(options)
+    // console.log(options.instance.gatt)
     if (device) {
       device.characteristics = device.characteristics || options.characteristics
       device.primary_service = device.primary_service || options.primary_service
@@ -38,7 +40,7 @@ const mutations = {
       loading: options.loading,
       serialNumber: options.instance.id,
       productName: options.instance.name,
-      opened: options.instance.gatt.connected,
+      // opened: options.instance.gatt.connected,
       deviceVersionMajor: 0,
       deviceVersionMinor: 0,
       deviceVersionSubminor: 1

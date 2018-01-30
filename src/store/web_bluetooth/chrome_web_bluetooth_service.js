@@ -1,5 +1,6 @@
-// import _ from 'lodash'
+import _ from 'lodash'
 import { REQUEST_DEVICE_OPTIONS, PRIMARY_SERVICE_UUID } from './constants'
+let WebBluetoothDevices = require('./WebBluetoothDevices')
 
 // // // //
 
@@ -9,7 +10,7 @@ import { REQUEST_DEVICE_OPTIONS, PRIMARY_SERVICE_UUID } from './constants'
 // ChromeWebBluetoothService class definition
 // Responsible for managing USB devices
 // - requesting permission to pair with devices
-// - fetching paired devices
+// - fetching paired devices/
 // - writing data to a device
 // - reading data from a device
 // - write firmware to a device (TODO)
@@ -28,6 +29,10 @@ class ChromeWebBluetoothService {
   // the latest data that was fetched asynchronously
   // TODO - figure out whether or not this is _actually_ needed
   updateDevice ({ commit }, options) {
+    console.log(options)
+    console.log(options.instance.id)
+    console.log(WebBluetoothDevices)
+    options.instance = _.find(WebBluetoothDevices, { id: options.instance.id })
     return commit('add', options)
   }
 
@@ -38,7 +43,7 @@ class ChromeWebBluetoothService {
     console.log('onDisconnected')
     // console.log(event)
     // console.log(event.target)
-    return this.updateDevice({ commit }, { instance: event.target })
+    return this.updateDevice({ commit }, { instance: event.target, loading: false })
   }
 
   // connect
@@ -48,6 +53,8 @@ class ChromeWebBluetoothService {
     return new Promise((resolve, reject) => {
       // Sets loading
       this.updateDevice({ commit }, { instance: deviceInstance, loading: true })
+      // console.log(deviceInstance.id)
+      deviceInstance = _.find(WebBluetoothDevices, { id: deviceInstance.id })
 
       return deviceInstance.gatt.connect()
       .then((g) => {
@@ -142,6 +149,7 @@ class ChromeWebBluetoothService {
     return new Promise((resolve, reject) => {
       return navigator.bluetooth.requestDevice(REQUEST_DEVICE_OPTIONS)
       .then((device) => {
+        WebBluetoothDevices.push(device)
         commit('collection', [device])
         return resolve(true)
       })
