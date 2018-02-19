@@ -146,6 +146,11 @@ class WorkflowParser {
         // Finds key object
         let key = _.find(KEYS, { dec: pair[1] }) // TODO - CONSTANTIZE INDEX HERE
 
+        if (!key) {
+          console.log('ALERT - KEY NOT FOUND!')
+          return { steps: [] }
+        }
+
         // Clones the macro object
         key = _.clone(key)
         key.id = 'key_' + Math.floor((Math.random() * 100000000000000) + 1)
