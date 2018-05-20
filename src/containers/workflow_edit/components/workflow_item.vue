@@ -6,7 +6,7 @@
       <div class="col-lg-1 text-left d-flex align-items-center">
         <i class="fa fa-lg fa-fw fa-bars mr-3" v-if="item.icon"></i>
 
-        <i class="fa fa-lg fa-fw fa-play mr-3" v-if="item.type === 'KEY_DOWN'"></i>
+        <i class="fa fa-lg fa-fw fa-flag text-success mr-3" v-if="item.type === 'KEY_DOWN'"></i>
         <i class="fa fa-lg fa-fw fa-chevron-up mr-3" v-if="item.type === 'KEY_UP'"></i>
         <i class="fa fa-lg fa-fw fa-flag-checkered mr-3" v-if="item.type === 'FINISH'"></i>
         <i :class="'fa fa-fw'" v-if="item.icon"></i>

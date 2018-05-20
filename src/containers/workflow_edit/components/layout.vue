@@ -1,9 +1,5 @@
 
 <template>
-  <!-- <div class="container-fluid"> -->
-  <!-- <h2>{{workflow.label}}</h2> -->
-  <!-- <hr> -->
-
   <div class="row">
     <div class="col-lg-12">
 

@@ -46,7 +46,7 @@ export const KEYS = [
     { row: 'r2', key: "'", shift_key: '"', keycode: 222, dec: 52 },
     { row: 'r2', key: 'RETURN', css: 'w2_25', keycode: 13, special: true, dec: 88 }, // ENTER == { dec: 40 }
 
-    { row: 'r1', key: 'SHIFT', css: 'w2_25', keycode: 16, special: true, dec: 225 },
+    { row: 'r1', key: 'SHIFT', css: 'w2_25', keycode: 16, isModifier: true, special: true, dec: 225 },
     { row: 'r1', key: 'z', shift_key: 'Z', alpha: true, keycode: 90, dec: 29 },
     { row: 'r1', key: 'x', shift_key: 'X', alpha: true, keycode: 88, dec: 27 },
     { row: 'r1', key: 'c', shift_key: 'C', alpha: true, keycode: 67, dec: 6 },
@@ -57,16 +57,16 @@ export const KEYS = [
     { row: 'r1', key: ',', shift_key: '<', keycode: 188, dec: 54 },
     { row: 'r1', key: '.', shift_key: '>', keycode: 190, dec: 55 },
     { row: 'r1', key: '/', shift_key: '?', keycode: 191, dec: 56 },
-    { row: 'r1', key: 'SHIFT', css: 'w2_75', keycode: 16, special: true, dec: 225 },
+    { row: 'r1', key: 'SHIFT', css: 'w2_75', keycode: 16, isModifier: true, special: true, dec: 225 },
 
-    { row: 'r0', key: 'CTRL', css: 'w1_25', keycode: 17, special: true, dec: 224 },
-    { row: 'r0', key: 'META', css: 'w1_25', keycode: 91, special: true, dec: 227 },
-    { row: 'r0', key: 'ALT', css: 'w1_25', keycode: 18, special: true, dec: 226 },
+    { row: 'r0', key: 'CTRL', css: 'w1_25', keycode: 17, isModifier: true, special: true, dec: 224 },
+    { row: 'r0', key: 'META', css: 'w1_25', keycode: 91, isModifier: true, special: true, dec: 227 },
+    { row: 'r0', key: 'ALT', css: 'w1_25', keycode: 18, isModifier: true, special: true, dec: 226 },
     { row: 'r0', key: 'SPACE', css: 'space', keycode: 32, special: true, dec: 44 },
-    { row: 'r0', key: 'CTRL', css: 'w1_25', keycode: 17, special: true, dec: 224 },
-    { row: 'r0', key: 'M', css: 'w1_25', keycode: 18, special: true, dec: 227 },
-    { row: 'r0', key: 'P', css: 'w1_25', keycode: 93, special: true, dec: 70 },
-    { row: 'r0', key: 'ALT', css: 'w1_25', keycode: 18, special: true, dec: 226 },
+    { row: 'r0', key: 'CTRL', css: 'w1_25', keycode: 17, isModifier: true, special: true, dec: 224 },
+    { row: 'r0', key: 'META', css: 'w1_25', keycode: 91, isModifier: true, special: true, dec: 227 },
+    { row: 'r0', key: 'P', css: 'w1_25', keycode: 93, isModifier: true, special: true, dec: 70 },
+    { row: 'r0', key: 'ALT', css: 'w1_25', keycode: 18, isModifier: true, special: true, dec: 226 },
 
     // NUMPAD
     { row: 'num_r4', key: 'n_CLEAR', keycode: 6083, dec: 83 },

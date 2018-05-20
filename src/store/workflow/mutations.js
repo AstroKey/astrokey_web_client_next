@@ -141,12 +141,30 @@ const mutations = {
   },
   // addMacroKey
   // Adds an additional key to the currently selected macro
+  // TODO - move this out of mutations and into actions
   addMacroKey (state, { macro, key }) {
-    let newKey = _.cloneDeep(key)
-    newKey.order = macro.value.length
-    newKey.position = KEY_PR_POSITION
-    newKey.id = _.uniqueId('macrostep_')
-    macro.value.push(newKey)
+    // Add KEY_DOWN & KEY_UP positions if a modifier key has been added
+    if (key.isModifier) {
+      // KEY_DOWN Modifier
+      let downKey = _.cloneDeep(key)
+      downKey.order = macro.value.length
+      downKey.position = KEY_DN_POSITION
+      downKey.id = _.uniqueId('macrostep_')
+      macro.value.push(downKey)
+
+      // KEY_UP Modifier
+      let upKey = _.cloneDeep(key)
+      upKey.order = macro.value.length + 1
+      upKey.position = KEY_UP_POSITION
+      upKey.id = _.uniqueId('macrostep_')
+      macro.value.push(upKey)
+    } else {
+      let newKey = _.cloneDeep(key)
+      newKey.order = macro.value.length
+      newKey.position = KEY_PR_POSITION
+      newKey.id = _.uniqueId('macrostep_')
+      macro.value.push(newKey)
+    }
   },
 
   // TODO - merge with the above method?

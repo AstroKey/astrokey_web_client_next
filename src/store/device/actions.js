@@ -18,6 +18,7 @@ const actions = {
 
   // connect
   // Invoked with store.commit('device/connect', { device })
+  // TODO - change device to device.id, move into state
   connect: ({ commit }, { device }) => {
     // TODO - ACTIONS should be constantized
     // TODO - API for WebUSB and WebBluetooth should be consistent
@@ -26,6 +27,10 @@ const actions = {
     // TODO - constantize 'web_usb'
     if (device.type === 'web_usb') {
       return store.dispatch('web_usb/openDevice', { device: device })
+    }
+
+    if (device.type === 'chrome_usb') {
+      return store.dispatch('chrome_usb/openDevice', { device: device })
     }
 
     // Handles WebUSB & WebBluetooth devices

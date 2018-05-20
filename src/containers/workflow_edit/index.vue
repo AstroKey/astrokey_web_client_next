@@ -1,6 +1,8 @@
 
 <template>
-  <LayoutView :workflow="workflow"/>
+  <div class="container mt-4 pt-4">
+    <LayoutView :workflow="workflow"/>
+  </div>
 </template>
 
 <!-- // // // //  -->

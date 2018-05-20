@@ -43,6 +43,7 @@ export default {
   body
     height: 100%
 
+  // TODO - remove this.
   .container-fluid
     height: 100%
     padding-top: 3.5rem

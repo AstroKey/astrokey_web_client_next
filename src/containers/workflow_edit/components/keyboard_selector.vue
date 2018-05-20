@@ -15,7 +15,7 @@
 
           ul.list-unstyled.mb-0.keyboard--row.w-100( v-for="(keys, row) in keyboardRows(keyboard_id)" :key="row" )
 
-            li.btn.btn-outline-light.keyboard--key( :class="keyItem.css" @click="onKeyClick(keyItem)" v-for="keyItem in keys" :key="keyItem.keycode")
+            li.btn.btn-outline-light.keyboard--key( :class="keyItem.css" @click="onKeyClick(keyItem)" v-for="keyItem in keys" :key="keyItem.id")
               i.fa.fa-fw( :class="keyItem.icon" v-if="!!keyItem.icon" )
 
               .shift(v-if=" keyItem.key && keyItem.shift_key && !keyItem.alpha ") {{ keyItem.shift_key }}
@@ -36,11 +36,11 @@ export default {
   props: ['macro'],
   data () {
     let navItems = [
-      { icon: 'fa-keyboard-o', text: 'Keyboard', trigger: 'keyboard', selected: true },
-      { icon: 'fa-file-text-o', text: 'Numpad', trigger: 'numpad' },
-      { icon: 'fa-caret-square-o-up', text: 'Function', trigger: 'function' },
-      { icon: 'fa-asterisk', text: 'Media', trigger: 'media' },
-      { icon: 'fa-asterisk', text: 'Navigation', trigger: 'nav' }
+      { order: 1, icon: 'fa-keyboard-o', text: 'Keyboard', trigger: 'keyboard', selected: true },
+      { order: 2, icon: 'fa-file-text-o', text: 'Numpad', trigger: 'numpad' },
+      { order: 3, icon: 'fa-caret-square-o-up', text: 'Function', trigger: 'function' },
+      { order: 4, icon: 'fa-asterisk', text: 'Media', trigger: 'media' },
+      { order: 5, icon: 'fa-asterisk', text: 'Navigation', trigger: 'nav' }
       // { icon: 'fa-universal-access', text: 'Unicode', trigger: 'unicode' }
     ]
 

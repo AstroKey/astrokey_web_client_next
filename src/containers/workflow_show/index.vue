@@ -1,6 +1,10 @@
 
 <template>
-  <LayoutView :workflow="workflow"/>
+  <div class="container">
+    <h2>{{workflow.label}}</h2>
+    <hr>
+    <LayoutView :workflow="workflow"/>
+  </div>
 </template>
 
 <!-- // // // //  -->
