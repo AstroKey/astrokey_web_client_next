@@ -4,8 +4,8 @@ const state = {
   collection: [],
   current: {},
   fetching: false,
-  selectedDevice: null,
-  selectedKey: null,
+  selectedDevice: {},
+  selectedKey: {},
   selectedKeyWorkflow: {}
 }
 

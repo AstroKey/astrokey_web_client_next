@@ -25,5 +25,5 @@ const state = {
   recording: false,
   fetching: false
 }
-
+window.workflow = state.collection[0]
 export default state

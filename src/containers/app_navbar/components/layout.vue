@@ -1,42 +1,26 @@
 <template>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
-    <a class="navbar-brand" href="#/">
+  <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
+    <b-navbar-brand href="#/">
       <img class='logo mr-3' src="/static/icon_white.svg">
       <strong>Astro</strong>Key
-    </a>
+    </b-navbar-brand>
 
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <b-collapse is-nav id="nav_collapse">
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
+      <!-- Navbar Links -->
+      <b-navbar-nav class="mr-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="#/devices">Devices</a>
-        </li>
+        <!-- Public links -->
+        <b-nav-item href="#/devices">Devices</b-nav-item>
 
-        <!-- <li class="nav-item"> -->
-          <!-- <a class="nav-link" href="#/workflows">Workflows</a> -->
-        <!-- </li> -->
+      </b-navbar-nav>
 
-	    </ul>
-
-	    <!-- <ul class="navbar-nav ml-auto"> -->
-	      <!-- <li class="nav-item"> -->
-	        <!-- <a class="nav-link" href="#/auth/register">Register</a> -->
-	      <!-- </li> -->
-	      <!-- <li class="nav-item"> -->
-	        <!-- <a class="nav-link" href="#/auth/login">Login</a> -->
-	      <!-- </li> -->
-	    <!-- </ul> -->
-	  </div>
-	</nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
-// TODO - this should be split into a series of smaller components
 export default {
   name: 'Navbar'
 }

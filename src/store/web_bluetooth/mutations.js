@@ -18,7 +18,8 @@ const mutations = {
   add (state, options) {
     // Finds device if it exists in the store
     let devices = store.getters['device/collection']
-    let device = _.find(devices, { serialNumber: options.instance.id })
+    // let device = _.find(devices, { serialNumber: options.instance.id })
+    let device = _.find(devices, { id: options.instance.id })
 
     console.log(options)
     // console.log(options.instance.gatt)
@@ -39,7 +40,8 @@ const mutations = {
       instance: options.instance,
       loading: options.loading,
       serialNumber: options.instance.id,
-      productName: options.instance.name,
+      // productName: options.instance.name,
+      productName: 'Lyrebird',
       // opened: options.instance.gatt.connected,
       deviceVersionMajor: 0,
       deviceVersionMinor: 0,

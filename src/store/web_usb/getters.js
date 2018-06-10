@@ -6,6 +6,9 @@ const getters = {
   },
   fetching: state => {
     return state.fetching
+  },
+  transferPayload: state => {
+    return state.transferPayload
   }
 }
 

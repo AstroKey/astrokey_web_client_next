@@ -1,4 +1,3 @@
-import Factory from './factory'
 import WorkflowParser from './parser'
 
 // // // //
@@ -6,15 +5,15 @@ import WorkflowParser from './parser'
 // actions
 // functions that causes side effects and can involve asynchronous operations.
 const actions = {
-  fetchCollection: ({ commit }) => Factory.fetchCollection({ commit }),
+  // serialize
+  serialize ({ commit }, { workflow }) {
+    return WorkflowParser.serialize(workflow)
+  },
 
-  create: ({ commit }, attributes) => Factory.create({ commit }, attributes),
-
-  // TODO - move to mutations?
-  serialize: ({ commit }, { workflow }) => WorkflowParser.serialize(workflow),
-
-  // TODO - move to mutations?
-  parse: ({ commit }, { data }) => WorkflowParser.parse(data)
+  // parse
+  parse ({ commit }, { data }) {
+    return WorkflowParser.parse(data)
+  }
 }
 
 // // // //

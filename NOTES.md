@@ -51,3 +51,15 @@ Options:
 
 nwbuild -p win32,win64,osx32,osx64,linux32,linux64 -v latest ./dist
 nwbuild -p linux64 -v latest ./dist
+
+<!-- TODO - add an NPM task for this... -->
+nwbuild -p win64 -v latest ./dist
+
+NWK Friendly HTML
+```
+<!DOCTYPE html><html><head><meta charset=utf-8><title>AstroKey</title><script src=http://localhost:35729/livereload.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css><script src=https://unpkg.com/vue-meta@1.2.0/lib/vue-meta.min.js></script><link href=/static/css/app.d6b0643bbc77bc0846989c2200e4071b.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2c4989e258190844f648.js></script><script type=text/javascript src=/static/js/vendor.ab47de4a4583ccbd1fff.js></script><script type=text/javascript src=http://localhost:8080/app.js></script></body></html>
+
+```
+
+
+# FLASHING FIRMWARE ON LINUX

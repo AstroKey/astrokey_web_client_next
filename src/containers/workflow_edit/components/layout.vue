@@ -118,7 +118,6 @@
 
 <script>
 import _ from 'lodash'
-import store from '@/store'
 import draggable from 'vuedraggable'
 import WorkFlowItem from './workflow_item'
 import MacroEditor from './macro_editor'
@@ -132,39 +131,39 @@ export default {
   },
   methods: {
     addStep (type) {
-      store.commit('workflow/addStep', { workflow: this.workflow, step_type: type })
+      this.$store.commit('workflow/addStep', { workflow: this.workflow, step_type: type })
     },
     cloneStep (step) {
-      store.commit('workflow/cloneStep', { workflow: this.workflow, step: step })
+      this.$store.commit('workflow/cloneStep', { workflow: this.workflow, step: step })
     },
     removeStep (step) {
-      store.commit('workflow/removeStep', { workflow: this.workflow, step: step })
+      this.$store.commit('workflow/removeStep', { workflow: this.workflow, step: step })
     },
     editStep (step) {
-      store.commit('workflow/selectStep', { step })
+      this.$store.commit('workflow/selectStep', { step })
     },
     clearSelected () {
-      store.commit('workflow/clearSelectedStep')
+      this.$store.commit('workflow/clearSelectedStep')
     },
     updateSelected (step) {
-      store.commit('workflow/updateSelectedStep', { workflow: this.workflow, step: step })
+      this.$store.commit('workflow/updateSelectedStep', { workflow: this.workflow, step: step })
     },
     cycleMacroKeyPosition (macroStep) {
-      store.commit('workflow/cycleMacroStepPosition', { macroStep: macroStep })
+      this.$store.commit('workflow/cycleMacroStepPosition', { macroStep: macroStep })
     },
     startRecording () {
-      store.commit('workflow/startRecording')
+      this.$store.commit('workflow/startRecording')
     },
     stopRecording () {
-      store.commit('workflow/stopRecording')
+      this.$store.commit('workflow/stopRecording')
     },
     clearSelectedMacro () {
-      store.commit('workflow/clearMacro')
+      this.$store.commit('workflow/clearMacro')
     }
   },
   computed: {
     recording () {
-      return store.getters['workflow/recording']
+      return this.$store.getters['workflow/recording']
     },
     sortableOptions () {
       return {
@@ -174,7 +173,7 @@ export default {
       }
     },
     editing () {
-      return store.getters['workflow/selectedStep']
+      return this.$store.getters['workflow/selectedStep']
     },
     steps: {
       get () {

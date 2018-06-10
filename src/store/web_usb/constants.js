@@ -21,3 +21,12 @@ export const WRITE_MACRO_CONTROL_TRANSFER = {
   // 'value': keyIndex, // NOTE - `value` attribute is assigned in the ChromeWebUSBService.writeMacro() method
   'index': 0x01 // TODO - We can use index for the key the macro corresponds to (low-byte = key, high-byte = number of actions in the macro)
 }
+
+// Default control transfer object
+export const DEFAULT_CONTROL_TRANSFER = {
+  'requestType': 'vendor',
+  'recipient': 'device',
+  'request': 0x03,
+  'value': 0x0004,
+  'index': 0x01
+}

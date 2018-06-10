@@ -1,38 +1,65 @@
 
 <template>
-  <LayoutView :device="device" v-if="device" />
+  <div class="container-fluid">
+    <div class="row h-100">
+
+      <!-- Device Mockup -->
+      <div class="col-lg-4 d-flex justify-content-center flex-column align-items-center">
+        <DeviceControls :device="device" />
+      </div>
+
+      <!-- WelcomeMessage and Workflow -->
+      <div class="col-lg-8 selected-key-detail">
+        <WelcomeMessage v-if="!selectedKey.id"/>
+        <WorkflowControls v-else :device="device" />
+      </div>
+
+    </div>
+  </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import _ from 'lodash'
-import LayoutView from './components/layout.vue'
-import store from '@/store'
+import { mapGetters, mapActions } from 'vuex'
+import DeviceControls from './components/DeviceControls'
+import WelcomeMessage from './components/WelcomeMessage'
+import WorkflowControls from './components/WorkflowControls'
 
+// TODO - much of this is repeated from `device_show`
 export default {
-  components: {
-    LayoutView
-  },
   metaInfo: {
-    title: 'Device - Interface' // title is now "AstroKey - Device - Interface"
+    title: 'Device - Interface'
   },
-  props: ['id'],
-  mounted () {
-    // NOTE: eases delays that occur while developing this page as a standalone
-    setTimeout(() => {
-      let device = _.find(store.getters['device/collection'], { serialNumber: this.id })
-      store.commit('device/selectedDevice', { device })
-    }, 200)
+  components: {
+    DeviceControls,
+    WelcomeMessage,
+    WorkflowControls
   },
-  computed: {
-    device () {
-      let device = store.getters['device/selectedDevice']
-      if (device) store.dispatch('device/connect', { device })
-      return device
-    }
-  }
+  created () {
+    this.ensureDevice()
+  },
+  beforeDestroy () {
+    this.clearDevice()
+  },
+  computed: mapGetters({
+    device: 'device/selectedDevice',
+    selectedKey: 'device/selectedKey'
+
+  }),
+  methods: mapActions({
+    ensureDevice: 'device/ensureSelectedDevice',
+    clearDevice: 'device/clearSelectedDevice'
+  })
 }
 </script>
 
+<!-- // // // //  -->
 
+<style lang="sass" scoped>
+@import '../../sass/vendor.sass'
+
+.selected-key-detail
+  border-left: 1px solid theme-color('light')
+
+</style>
