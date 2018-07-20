@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import store from '@/store'
-import router from '@/routers'
+import router from '@/router'
 import { REQUEST_DEVICE_FILTERS, READ_MACRO_CONTROL_TRANSFER, WRITE_MACRO_CONTROL_TRANSFER, DEFAULT_CONTROL_TRANSFER } from './constants'
 const USBDevices = []
 
