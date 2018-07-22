@@ -3,8 +3,7 @@ import _ from 'lodash'
 
 // // // //
 
-// WebUSB Module mutations
-const mutations = {
+export default {
   fetching (state, isFetching) {
     state.fetching = isFetching
   },
@@ -52,7 +51,3 @@ const mutations = {
     store.commit('device/add', deviceAttributes)
   }
 }
-
-// // // //
-
-export default mutations

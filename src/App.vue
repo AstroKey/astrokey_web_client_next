@@ -1,31 +1,25 @@
 
 <template>
   <div id="app">
-    <AppNavbar/>
+    <Navbar/>
     <router-view/>
-    <!-- <Notification/> -->
+    <!-- <Notifications/> -->
   </div>
 </template>
 
 <script>
-import AppNavbar from './containers/app_navbar'
-import AppFooter from './containers/app_footer'
-// import Notification from './containers/app_notification'
+import Navbar from '@/components/Navbar'
+// import Notifications from '@/modules/notification/components/Notifications'
 
 export default {
   name: 'app',
-
-  // Top-Level Application Components
   components: {
-    AppNavbar,
-    // Notification,
-    AppFooter
+    Navbar
+    // Notifications,
   },
-
-  // Top-Level page Meta
   metaInfo: {
-    title: 'Loading...', // set a title
-    titleTemplate: 'AstroKey - %s', // title is now "AstroKey - Loading..."
+    title: 'Loading...',
+    titleTemplate: 'AstroKey - %s',
     htmlAttrs: {
       lang: 'en'
     }

@@ -1,3 +1,6 @@
+$white: #f3f3f3 !default
+$light: #f3f3f3 !default
+$dark: #333333 !default
 
 // Required defaults - copied and pasted from Bootstrap variables
 $white: #f3f3f3 !default
@@ -17,19 +20,36 @@ $border-width:                1px !default;
 // //////////////
 
 // Bootstrap Variable Overrides
-$white: #f3f3f3 !default
 // $body-bg: #f3f3f3 !default
 $font-weight-normal: 300 !default
 
-$body-bg: #333333
-$body-color: $white
+// TODO - enable dark/light theme switching
+
+// Dark theme
+$body-bg: $dark
+$body-color: $light
+$brand-dark: $light
+$brand-light: $dark
+$card-bg: $dark
+$breadcrumb-bg: $dark
+$list-group-bg: $dark
+$list-group-border-color: $gray-700
+
+// Light
+// $body-bg: $light
+// $body-color: $dark
+// $brand-dark: $dark
+// $brand-light: $light
+// $breadcrumb-bg: $light
+// $list-group-bg: $light
+// $list-group-border-color: $dark
 
 $hr-border-color:             #999 !default;
 $hr-border-width:             $border-width !default;
 
 $link-color: #9fceff !default;
 
-// /////////////
+// // // //
 
 // $primary:       $blue !default
 // $secondary:     $gray-700

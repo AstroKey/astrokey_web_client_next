@@ -1,9 +1,6 @@
-// import store from '@/store'
 import ChromeWebBluetoothService from './chrome_web_bluetooth_service'
 
-// actions
-// functions that causes side effects and can involve asynchronous operations.
-const actions = {
+export default {
 
   // Invoked with:
   // store.dispatch('web_bluetooth/requestDevices')
@@ -25,7 +22,3 @@ const actions = {
   // store.dispatch('web_bluetooth/write', { characteristic: BluetoothRemoteGATTCharacteristic, packet: [ 1, 2, ... ] })
   write: ({ commit }, { characteristic, packet }) => ChromeWebBluetoothService.write({ commit }, characteristic, packet)
 }
-
-// // // //
-
-export default actions

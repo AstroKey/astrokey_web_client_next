@@ -1,6 +1,5 @@
 
-// USB Module Getters
-const getters = {
+export default {
   collection: state => {
     return state.collection
   },
@@ -8,5 +7,3 @@ const getters = {
     return state.fetching
   }
 }
-
-export default getters
