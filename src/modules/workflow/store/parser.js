@@ -111,8 +111,8 @@ class WorkflowParser {
     _.each(steps, (step) => { persistWorkflowStep(step) })
 
     // Returns the array of Workflow steps
-    console.log('workflowSteps')
-    console.log(workflowSteps)
+    // console.log('workflowSteps')
+    // console.log(workflowSteps)
     return { steps: workflowSteps }
   }
 
@@ -137,7 +137,7 @@ class WorkflowParser {
 
       // Handles invalid key
       if (!key) {
-        console.log('ALERT - KEY NOT FOUND!')
+        // console.log('ALERT - KEY NOT FOUND!')
         return
       }
 
@@ -163,7 +163,7 @@ class WorkflowParser {
     })
 
     // Logs and returns textValue
-    console.log(textValue)
+    // console.log(textValue)
     return textValue
   }
 
@@ -291,8 +291,8 @@ class WorkflowParser {
       data.push(STEP_TERMINATOR)
     })
 
-    console.log('workflow/serialize: ')
-    console.log(data)
+    // console.log('workflow/serialize: ')
+    // console.log(data)
     return data
   }
 }

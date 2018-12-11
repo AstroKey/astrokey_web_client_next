@@ -62,7 +62,7 @@
             <div class="col-lg-12">
               <p class="lead mb-0">TEXT: {{ editing.value }}</p>
               <small>TODO - this should be integrated into the WorkflowStep View</small>
-              <input class="form-control" type='text' :value="editing.value" @input="editing.value = $event.target.value"></input>
+              <input class="form-control" type='text' :value="editing.value" @input="editing.value = $event.target.value">
             </div>
           </div>
 
@@ -72,7 +72,7 @@
             <div class="col-lg-12">
               <p class="lead mb-0">DELAY: {{editing.value * 10}} ms</p>
               <small>TODO - this should be integrated into the WorkflowStep View</small>
-              <input class="form-control" type='number' min="0" max="255" step="1" :value="editing.value" @input="editing.value = $event.target.value"></input>
+              <input class="form-control" type='number' min="0" max="255" step="1" :value="editing.value" @input="editing.value = $event.target.value">
             </div>
           </div>
 
@@ -179,8 +179,8 @@ export default {
       get () {
         if (!this.workflow) return []
         // TODO - this should be moved into Vuex store
-        this.workflow.steps = _.orderBy(this.workflow.steps, ['order'], ['asc'])
-        return this.workflow.steps
+        return _.orderBy(this.workflow.steps, ['order'], ['asc'])
+        // return this.workflow.steps
       },
       set (value) {
         _.each(value, (s, i) => { s.order = i })

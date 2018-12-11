@@ -20,7 +20,7 @@ export default {
     // let device = _.find(devices, { serialNumber: options.instance.id })
     let device = _.find(devices, { id: options.instance.id })
 
-    console.log(options)
+    // console.log(options)
     // console.log(options.instance.gatt)
     if (device) {
       device.characteristics = device.characteristics || options.characteristics

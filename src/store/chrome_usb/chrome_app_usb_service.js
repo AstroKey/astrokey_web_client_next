@@ -6,7 +6,7 @@ import { SERIAL_NUMBER, GET_DEVICE_OPTIONS, READ_MACRO_CONTROL_TRANSFER, WRITE_M
 
 const handleError = () => {
   if (window.chrome.runtime.lastError) {
-    console.log('CAPTURED LAST ERROR: ', window.chrome.runtime.lastError.message)
+    // console.log('CAPTURED LAST ERROR: ', window.chrome.runtime.lastError.message)
   }
 }
 
@@ -68,8 +68,8 @@ class ChromeAppUsbService {
   // removeDevice
   // Adds a device to this.devices
   removeDevice (usbDeviceInstance) {
-    console.log('REMOVING DEVICE')
-    console.log(usbDeviceInstance)
+    // console.log('REMOVING DEVICE')
+    // console.log(usbDeviceInstance)
     return usbDeviceInstance
   }
 
@@ -82,9 +82,9 @@ class ChromeAppUsbService {
     if (!deviceInstance) return
     return new Promise((resolve, reject) => {
       return window.chrome.usb.openDevice(deviceInstance, (connectionHandle) => {
-        console.log('OPENED')
-        console.log('device', device)
-        console.log('connectionHandle', connectionHandle)
+        // console.log('OPENED')
+        // console.log('device', device)
+        // console.log('connectionHandle', connectionHandle)
 
         // Updates deviceInstance with `opened` and `connectionHandle`
         deviceInstance.opened = true
@@ -94,6 +94,7 @@ class ChromeAppUsbService {
         this.addDevice(deviceInstance)
 
         // Resovles with
+        if (!connectionHandle) { return reject(false) }
         return resolve(deviceInstance)
       })
     })
@@ -104,6 +105,7 @@ class ChromeAppUsbService {
   closeDevice (device) {
     return new Promise((resolve, reject) => {
       return window.chrome.usb.closeDevice(device, (e) => {
+        if (!e) { return reject(false) }
         return resolve(device)
       })
     })
@@ -120,6 +122,7 @@ class ChromeAppUsbService {
         _.each(deviceArray, (d) => {
           this.addDevice(d)
         })
+        if (!deviceArray) { return reject(false) }
         return resolve(this.devices)
       })
     })
@@ -145,11 +148,14 @@ class ChromeAppUsbService {
 
       // NOTE - `device.controlTransferIn` READS DATA FROM DEVICE
       window.chrome.usb.controlTransfer(deviceInstance.connectionHandle, READ_MACRO_OPTIONS, (response) => {
-        console.log('readMacro response:')
-        console.log(response)
+        // console.log('readMacro response:')
+        // console.log(response)
         // TODO - handle response code -> 1 == success, else == error
-        console.log(new Uint8Array(response.data))
-        return resolve(new Uint8Array(response.data))
+        // console.log(new Uint8Array(response.data))
+        if (response) {
+          return resolve(new Uint8Array(response.data))
+        }
+        return reject(false)
       })
       // .catch((err) => {
       //   console.log('readMacro error:')
@@ -180,11 +186,14 @@ class ChromeAppUsbService {
       // NOTE - `device.controlTransferOut` WRITES DATA TO DEVICE
       // return deviceInstance.controlTransferOut(WRITE_MACRO_OPTIONS, new Uint8Array(data).buffer)
       return window.chrome.usb.controlTransfer(deviceInstance.connectionHandle, WRITE_MACRO_OPTIONS, (response) => {
-        console.log('writeMacro response:')
-        console.log(response)
+        // console.log('writeMacro response:')
+        // console.log(response)
         // TODO - handle response code -> 1 == success, else == error
         // return resolve(new Uint8Array(response.data.buffer))
-        return resolve(response)
+        if (response) {
+          return resolve(response)
+        }
+        return reject(false)
       })
       // TODO - integrate error handling
       // .catch((err) => {

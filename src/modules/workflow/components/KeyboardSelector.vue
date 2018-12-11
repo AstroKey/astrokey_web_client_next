@@ -1,31 +1,51 @@
 
-<template lang='pug'>
-  .row
-    .col-lg-12
+<template>
+  <div class="row">
+    <div class="col-lg-12">
 
-      //- Select Keyboard
-      .row.justify-content-center.mt-4
-        .col-lg-8.d-flex.justify-content-center
-          button( :class="className(nav)" @click="onClick(nav)" v-for="nav in navItems" :key="nav.order" :item="nav") {{ nav.text }}
+      <!-- Select Keyboard -->
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-8 d-flex justify-content-center">
+          <button :class="className(nav)" @click="onClick(nav)" v-for="nav in navItems" :key="nav.order" :item="nav">
+            {{ nav.text }}
+          </button>
+        </div>
+      </div>
 
-      //- Display Selected Keyboard
-      .row.d-flex.justify-content-center.mt-4
+      <!-- Display Selected Keyboard -->
+      <div class="row d-flex justify-content-center mt-4">
 
-        .col-lg-8(v-if=" keyboard_id === 'keyboard' ")
+        <div class="col-lg-8" v-if=" keyboard_id === 'keyboard' ">
 
-          ul.list-unstyled.mb-0.keyboard--row.w-100( v-for="(keys, row) in keyboardRows(keyboard_id)" :key="row" )
+          <ul class="list-unstyled mb-0 keyboard--row w-100" v-for="(keys, row) in keyboardRows(keyboard_id)" :key="row">
 
-            li.btn.btn-outline-light.keyboard--key( :class="keyItem.css" @click="onKeyClick(keyItem)" v-for="keyItem in keys" :key="keyItem.id")
-              i.fa.fa-fw( :class="keyItem.icon" v-if="!!keyItem.icon" )
+            <li class="btn btn-outline-light keyboard--key" :class="keyItem.css" @click="onKeyClick(keyItem)" v-for="keyItem in keys" :key="keyItem.id">
+              <i class="fa fa-fw" :class="keyItem.icon" v-if="!!keyItem.icon"></i>
 
-              .shift(v-if=" keyItem.key && keyItem.shift_key && !keyItem.alpha ") {{ keyItem.shift_key }}
-              .plain(v-if=" keyItem.key && keyItem.shift_key && !keyItem.alpha ") {{ keyItem.key }}
+              <div class="shift" v-if=" keyItem.key && keyItem.shift_key && !keyItem.alpha ">
+                {{ keyItem.shift_key }}
+              </div>
+              <div class="plain" v-if=" keyItem.key && keyItem.shift_key && !keyItem.alpha ">
+                {{ keyItem.key }}
+              </div>
 
-              .plain( v-else-if=" keyItem.alpha " ) {{ keyItem.label || keyItem.shift_key }}
-              .plain( v-else ) {{ keyItem.label || keyItem.key }}
+              <div class="plain" v-else-if=" keyItem.alpha ">
+                {{ keyItem.label || keyItem.shift_key }}
+              </div>
 
-        .col-lg-12.text-center( v-else ) {{ keyboard_id }}
+              <div class="plain" v-else>
+                {{ keyItem.label || keyItem.key }}
+              </div>
+            </li>
+          </ul>
+        </div>
 
+        <div class="col-lg-12 text-center" v-else>
+          {{ keyboard_id }}
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

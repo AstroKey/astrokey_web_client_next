@@ -42,12 +42,12 @@
             <i class="fa fa-cogs mr-2"></i>
           </span>
 
-          <span class="d-flex align-items-center" v-for="m, i in item.value" v-bind:key="m.id">
-            <span class="badge bordered border-warning" v-if='m.position === 1'>{{m.key}}</span>
-            <span class="badge bordered border-info" v-if='m.position === 2'>{{m.key}}</span>
-            <span class="badge bordered border-success" v-if='m.position === 3'>{{m.key}}</span>
-            <i class="fa fa-fw fa-plus mx-1" v-if="i < item.value.length - 1"></i>
-          </span>
+          <!-- <span class="d-flex align-items-center" v-for="m, i of item.value" v-bind:key="i"> -->
+            <!-- <span class="badge bordered border-warning" v-if='m.position === 1'>{{m.key}}</span> -->
+            <!-- <span class="badge bordered border-info" v-if='m.position === 2'>{{m.key}}</span> -->
+            <!-- <span class="badge bordered border-success" v-if='m.position === 3'>{{m.key}}</span> -->
+            <!-- <i class="fa fa-fw fa-plus mx-1" v-if="i < item.value.length - 1"></i> -->
+          <!-- </span> -->
         </span>
 
       </div>

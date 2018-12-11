@@ -1,4 +1,0 @@
-
-export default {
-  fetching: false
-}

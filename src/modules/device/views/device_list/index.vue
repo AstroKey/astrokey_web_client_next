@@ -44,8 +44,8 @@ export default {
   },
   methods: mapActions({
     requestDevices: 'web_usb/requestDevices',
-    getDevices: 'web_usb/getDevices',
-    scanBluetooth: 'web_bluetooth/requestDevices'
+    getDevices: 'web_usb/getDevices'
+    // scanBluetooth: 'web_bluetooth/requestDevices'
   })
 }
 </script>

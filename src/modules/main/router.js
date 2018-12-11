@@ -1,6 +1,6 @@
 // Main Containers
-import MainHome from './views/home'
-import MainAbout from './views/about'
+import MainHome from './pages/home'
+import MainAbout from './pages/about'
 
 const HomeRoute = {
   path: '/',

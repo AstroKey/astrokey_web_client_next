@@ -11,7 +11,7 @@
         <div class="px-3 py-3 d-flex align-items-center">
           <div class="key--list--wrapper px-3 pb-2 d-flex">
             <small class='pt-3 pl-2 d-flex flex-row align-items-center'>
-              <img class="logo" src="@/assets/icon_white.svg"></img>
+              <img class="logo" src="@/assets/icon_white.svg">
               AstroKey
             </small>
             <ul class="list-unstyled key--list d-flex">
